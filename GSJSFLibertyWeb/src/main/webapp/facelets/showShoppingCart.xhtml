@@ -1,0 +1,170 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:dojo="http://j4fry.org/dojo"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+	xmlns:portlet="http://java.sun.com/portlet_2_0"
+	template="/gswebTemplate.xhtml">
+	<ui:define name="scripts">
+			<style type="text/css">
+				@import "${request.contextPath}/resources/dojo/dijit/themes/#{dojoBean.style}/#{dojoBean.style}.css" ;
+			</style>
+	</ui:define>
+	<ui:define name="title">Show Shopping Cart</ui:define>
+	<ui:define name="navBar">
+		<ui:include src="/composite/navBar.xhtml"></ui:include>
+	</ui:define>
+	<ui:define name="leftBar">
+		<!-- start left-hand navigation -->
+		<ui:include src="/composite/categorylist.xhtml"></ui:include>
+		<!-- end left-hand navigation -->
+	</ui:define>
+	<ui:define name="mainContent">
+		<!-- start main content area -->
+		<h:panelGroup rendered="#{garageSaleSessionBean.cartEmpty}">
+			<h:outputText styleClass="outputText" id="text5"
+				value="You don't have any item in the shopping cart yet, please select a category from the left, and enjoy your shopping"
+				style="color: blue"></h:outputText>
+		</h:panelGroup>
+		<dojo:form rendered="#{! garageSaleSessionBean.cartEmpty}"
+			id="shoppingCartForm" name="shoppingCartForm">
+			<h:outputText styleClass="outputText" id="text3"
+				value='You can click "Check Out" to check out, or update the quantity of items you want to purchase then click "Update"'></h:outputText>
+			<p></p>
+			<h2>
+				<h:messages id="dateErrorMessageID" globalOnly="true"
+					style="color: red">
+				</h:messages>
+			</h2>
+			<h:dataTable border="1" cellpadding="2" cellspacing="0"
+				columnClasses="columnClass1" headerClass="headerClass"
+				footerClass="footerClass" rowClasses="rowClass1, rowClass2"
+				styleClass="dataTable" id="shoppingCartTable" var="items"
+				value="#{garageSaleJSFActions._myCartModel}">
+				<h:column id="itemNameColumn">
+					<f:facet name="header">
+						<h:outputText id="text1" styleClass="outputText" value="Name"></h:outputText>
+					</f:facet>
+					<h:commandLink action="#{garageSaleJSFActions.showItem}"
+						value="#{items.description}" id="showItemDetailAgainCLink" />
+				</h:column>
+				<h:column id="mfgNameColumn">
+					<f:facet name="header">
+						<h:outputText id="text2" styleClass="outputText"
+							value="Manufacturer"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{items.mfgName}" id="mfgNameText" />
+				</h:column>
+				<h:column id="unitPriceColumn">
+					<f:facet name="header">
+						<h:outputText id="text3" styleClass="outputText" value="Price"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{items.unitPrice}" id="unitPriceText" />
+				</h:column>
+				<h:column id="quantityColumn">
+					<f:facet name="header">
+						<h:outputText id="text4" styleClass="outputText" value="Quantity"></h:outputText>
+					</f:facet>
+					<h:inputText styleClass="inputText" value="#{items.itemCount}"
+						id="itemCountText" />
+				</h:column>
+			</h:dataTable>
+			<h3>
+				<h:outputText styleClass="outputText"
+					value="Please choose the check out date: "
+					id="checkOutDateInfoText" />
+			</h3>
+			<h:outputText styleClass="outputText" value="Checkout date: "
+				id="checkOutDateText" />
+			<br></br>
+			<dojo:dateTextBox value="#{shoppingCartManagedBean.myDate}"
+				id="myDate" timeZone="Europe/Berlin" attr="">
+				<f:event type="postValidate"
+					listener="#{dateComponentSystemEventListener.processEvent}" />
+				<f:ajax execute="@form" render="@form" event="valueChange">
+				</f:ajax>
+			</dojo:dateTextBox>
+			<h2>
+				<span id="workingIndicator" style="display: none; font-size: 60%">
+					<h:graphicImage styleClass="graphicImageEx" id="imageEx2"
+						alt="ws_img" library="images" name="ajax-loader.gif"></h:graphicImage>
+					<h:outputText id="checkOutProgressText" styleClass="outputText"
+						value="Check out
+				in progress ..."></h:outputText>
+				</span>
+				<h:outputText value="#{garageSaleJSFActions.checkOutMessage}"
+					id="ajaxMessage2" />
+			</h2>
+
+			<h:commandButton type="submit" value="CheckOut"
+				styleClass="commandExButton" id="checkOutButton"
+				action="#{garageSaleJSFActions.checkOut}">
+				<f:ajax execute="@form" render="ajaxMessage2 @all"
+					onevent="showWorkingIndicator" />
+
+			</h:commandButton>
+			<h:commandButton type="submit" value="Update"
+				styleClass="commandExButton" id="updateButton"
+				action="#{garageSaleJSFActions.updateCart}">
+
+				<f:ajax execute="@form"
+					render="cartForm:cartTable cartForm:subTotal cartForm:taxAmount cartForm:total" />
+			</h:commandButton>
+		</dojo:form>
+		<h:form rendered="#{garageSaleSessionBean.cartEmpty}"
+			id="checkOutResultsForm" name="checkOutResultsForm">
+			<h:outputText styleClass="outputText " value="Dear ">
+			</h:outputText>
+			<h:outputText styleClass="outputText" id="text3"
+				value="#{sessionScope.custID}"></h:outputText>, 
+				<h:outputText styleClass="outputText"
+				value="Thank you for your purchase. You have successfully checked out the following:">
+			</h:outputText>
+			<br> </br>
+			<h:dataTable border="1" cellpadding="2" cellspacing="0"
+				columnClasses="columnClass1" headerClass="headerClass"
+				footerClass="footerClass" rowClasses="rowClass1, rowClass2"
+				styleClass="dataTable" id="purchaseTable" var="items"
+				value="#{garageSaleJSFActions.myPurchase}">
+				<h:column id="nameColumn">
+					<f:facet name="header">
+						<h:outputText id="text1" styleClass="outputText" value="Name"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{items.description}" id="nameColumnText" />
+				</h:column>
+				<h:column id="mfgNameColumn">
+					<f:facet name="header">
+						<h:outputText id="text2" styleClass="outputText"
+							value="Manufacturer"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{items.mfgName}" id="mfgNameColumnText" />
+				</h:column>
+				<h:column id="priceColumn">
+					<f:facet name="header">
+						<h:outputText id="text3" styleClass="outputText" value="Price"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{items.unitPrice}" id="priceText" />
+				</h:column>
+				<h:column id="itemCountColumn">
+					<f:facet name="header">
+						<h:outputText id="text4" styleClass="outputText" value="Quantity"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{items.itemCount}" id="itemCountText" />
+				</h:column>h
+					</h:dataTable>
+			<br></br>
+			<h:outputText styleClass="outputText"
+				value="You will be receiving more updates while the order is processed, if you want to make some more purchase, please select a category from the left.">
+			</h:outputText>
+			<br> </br>
+		</h:form>
+	</ui:define>
+	<!-- Start Cart content -->
+	<ui:define name="cartContent">
+		<!-- start cart content -->
+		<ui:include src="/composite/cartContent.xhtml"></ui:include>
+		<!-- end cart content -->
+	</ui:define>
+	<!--  End Cart Content -->
+</ui:composition>

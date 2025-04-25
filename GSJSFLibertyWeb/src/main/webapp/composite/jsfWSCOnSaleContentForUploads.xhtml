@@ -1,0 +1,21 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:portlet="http://java.sun.com/portlet_2_0">
+	<h:outputScript library="scripts" name="jsfWSCOnSaleContentForUploadsScript.js" target="head"/>
+	<h:outputText id="text2" value="Select product to Upload Demo File"
+		styleClass="outputText"
+		style="color: red; text-decoration: blink; font-size: 36pt; text-align: center"></h:outputText>
+	<h:form id="onSaleContentForm">
+		<div id="inventoryOnSaleTable"></div>
+		<h:inputHidden id="jsfWSCOnSaleContentForUploadsID" value="#{jsfWSCJsonBean.onSaleContentForUploadsData}" escape="false">
+		</h:inputHidden>
+		<h:commandButton value="Hidden" id="onSaleContentForUploadsButtonID" action="#{jsfWebSocketsClientActions.updateOnSaleContentForUploads}" styleClass="commandButton" style="visibility: hidden">
+			<f:ajax  render="jsfWSCOnSaleContentForUploadsID" event="click" onevent="printHidden()">
+			</f:ajax>
+		</h:commandButton>
+	</h:form>
+</ui:composition>
+

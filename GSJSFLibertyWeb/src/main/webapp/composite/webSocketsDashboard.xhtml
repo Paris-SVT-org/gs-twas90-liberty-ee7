@@ -1,0 +1,21 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:portlet="http://java.sun.com/portlet_2_0">
+	<h:outputScript  library="scripts" name="garageSaleWebSocketsDashboard.js" target="head"/>
+	<h:outputText id="dashBoardText" value="WebSockets Dashboard" styleClass="outputText"
+		style="color: blue; text-decoration: blink; font-size: 36pt; text-align: center"></h:outputText>
+			<h2 style="color:red" align="center"> Liberty Profile Server Name: ${request.serverName} and Address :${request.localAddr}</h2>
+		
+	<h:form id="webSocketsDashboardForm">
+		<!-- <div id="messages"></div>-->
+		<h:commandButton value="Hidden" id="webSocketsDashboardButton"
+			styleClass="commandButton" style="visibility: hidden">
+			<!-- <f:ajax execute="@form" render="@none" onevent="sendForDashboard()">
+			</f:ajax> -->
+		</h:commandButton>
+		<div id="webSocketsMetricsDiv"></div>
+	</h:form>
+</ui:composition>

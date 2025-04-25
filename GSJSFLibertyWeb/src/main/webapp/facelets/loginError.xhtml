@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+	xmlns:portlet="http://java.sun.com/portlet_2_0"
+	template="/gswebTemplate.xhtml">
+	<ui:define name="title">GarageSale Login Error</ui:define>
+	<ui:define name="navBar">
+	</ui:define>
+	<ui:define name="leftBar">
+		<!-- start left-hand navigation contents -->
+		<h:outputText styleClass="outputText" id="loginPageWelcomeText"
+			value="Welcome guest, please log in"
+			style="font-family: serif, Arial; font-size: 12pt"></h:outputText>
+		<!-- end left-hand navigation -->
+	</ui:define>
+
+	<ui:define name="mainContent">
+		<!-- start left-hand navigation -->
+		<table class="mainBox" border="0" cellpadding="0" width="100%"
+			height="87%" cellspacing="0">
+			<tbody>
+				<tr>
+					<td class="leftNavTD" align="left" valign="top" width="25%">
+						<div class="leftNavBox">
+							<h:outputText styleClass="outputText" id="text1"
+								value="Welcome guest, please log in">
+							</h:outputText>
+						</div></td>
+					<!-- end left-hand navigation -->
+
+					<!-- start main content area -->
+					<td class="mainContentTD" align="left" valign="top" width="501">
+						<div class="mainNavBox">
+							<h:outputText styleClass="outputText" id="text2"
+								value="Login failed, please try again">
+							</h:outputText>
+						</div></td>
+				</tr>
+			</tbody>
+		</table>
+	</ui:define>
+</ui:composition>

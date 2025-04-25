@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Class-Path: 
+Created-By: Maven Archiver ${maven-archiver.version}
+Build-Jdk-Spec: ${java.specification.version}
+Build-Tool: ${maven.build.version}
+Build-Jdk: ${java.version} (${java.vendor})
+Build-Os:  ${os.name} (${os.version}; (${os.arch})

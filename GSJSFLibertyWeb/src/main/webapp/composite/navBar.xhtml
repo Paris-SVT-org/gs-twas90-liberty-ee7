@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:portlet="http://java.sun.com/portlet_2_0">
+	<h:outputStylesheet library="css" name="stylesheet.css" />
+	<h:form styleClass="form" id="form1">
+		<h:panelGrid id="box3" columns="9" border="3">
+			<h:commandLink value="Home" id="homeLink"
+				action="#{garageSaleJSFActions.welcomePage}">
+			</h:commandLink>
+			<h:commandLink value="my Cart" id="myCartLink"
+				action="#{garageSaleJSFActions.showShoppingCart}">
+			</h:commandLink>
+			<h:commandLink value="My Info" id="customerInfoLink"
+				action="#{customerInfo.gotoCustomerInfo}">
+			</h:commandLink>
+			<h:commandLink value="My Info(CC)" id="myInfoCCLink"
+				action="#{garageSaleJSFActions.customerInfoCC}">
+			</h:commandLink>
+			<h:commandLink value="Faces flow" id="facesFlowLink"
+				action="#{garageSaleJSFActions.productReviewFlow}">
+			</h:commandLink>
+			<h:commandLink value="Play Demos" id="inventoryOnSaleLink"
+				action="#{webSocketsJSFActions.inventoryOnSale}">
+			</h:commandLink>
+			<h:commandLink value="Upload Demos" id="uploadDemosLink"
+				action="#{webSocketsJSFActions.uploadDemos}">
+			</h:commandLink>
+			<h:commandLink value="GarageSale Dashboard" id="gsDashboardLink"
+				action="#{webSocketsJSFActions.gsDashboard}">
+			</h:commandLink>
+			<h:commandLink value="WebSockets Dashboard" id="webSocketsDashboardLink"
+				action="#{webSocketsJSFActions.webSocketsDashboard}">
+			</h:commandLink>
+			
+		</h:panelGrid>
+		<h:panelGrid id="box4" columns="4" border="3">
+			<h:commandLink value="JSF WSC Play Demos" id="jsfWSCInventoryOnSaleLink"
+				action="#{jsfWebSocketsClientActions.inventoryOnSale}">
+			</h:commandLink>
+			<h:commandLink value="JSF WSC Upload Demos" id="jsfWSCUploadDemosLink"
+				action="#{jsfWebSocketsClientActions.uploadDemos}">
+			</h:commandLink>
+			<h:commandLink value="JSF WSC GarageSale Dashboard" id="jsfWSCGSDashboardLink"
+				action="#{jsfWebSocketsClientActions.gsDashboard}">
+			</h:commandLink>
+			<h:commandLink value="JSF WSC WebSockets Dashboard" id="jsfWSCWebSocketsDashboardLink"
+				action="#{jsfWebSocketsClientActions.webSocketsDashboard}">
+			</h:commandLink>
+		</h:panelGrid>
+		<h:commandButton type="submit" value="Logout" styleClass="commandExButton" id="logoutButton" action="#{logout.logout}">
+		</h:commandButton>
+		
+	</h:form>
+</ui:composition>

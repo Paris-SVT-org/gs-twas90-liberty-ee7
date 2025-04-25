@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar-bnd xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://websphere.ibm.com/xml/ns/javaee"
+    xsi:schemaLocation="http://websphere.ibm.com/xml/ns/javaee http://websphere.ibm.com/xml/ns/javaee/ibm-ejb-jar-bnd_1_0.xsd" version="1.0">
+  <session name="CategorySessionBean">
+    <resource-ref binding-name="jdbc/gsdb" name="jdbc/gsdb"/>
+  </session>
+
+  <session name="CustomerInfoSessionBean">
+    <resource-ref binding-name="jdbc/gsdb" name="jdbc/gsdb"/>
+  </session>
+
+  <session name="CustomerSessionBean">
+    <resource-ref binding-name="jdbc/gsdb" name="jdbc/gsdb"/>
+  </session>
+
+  <session name="GarageSaleStoreManager">
+    <resource-ref binding-name="jdbc/gsdb" name="jdbc/gsdb"/>
+  </session>
+
+  <session name="InventorySessionBean">
+    <resource-ref binding-name="jdbc/gsdb" name="jdbc/gsdb"/>
+  </session>
+
+  <session name="MfgCategorySessionBean">
+    <resource-ref binding-name="jdbc/gsdb" name="jdbc/gsdb"/>
+  </session>
+
+  <session name="OpenjpaSequenceTableSessionBean">
+    <resource-ref binding-name="jdbc/gsdb" name="jdbc/gsdb"/>
+  </session>
+
+  <session name="ProdReviewSessionBean1">
+    <resource-ref binding-name="jdbc/gsdb" name="jdbc/gsdb"/>
+  </session>
+
+  <session name="SettingSessionBean">
+    <resource-ref binding-name="jdbc/gsdb" name="jdbc/gsdb"/>
+  </session>
+
+  <session name="ShipRateSessionBean1">
+    <resource-ref binding-name="jdbc/gsdb" name="jdbc/gsdb"/>
+  </session>
+
+  <session name="StoreCreditSessionBean">
+    <resource-ref binding-name="jdbc/gsdb" name="jdbc/gsdb"/>
+  </session>
+
+  <session name="TaxRateSessionBean1">
+    <resource-ref binding-name="jdbc/gsdb" name="jdbc/gsdb"/>
+  </session>
+
+</ejb-jar-bnd>
+

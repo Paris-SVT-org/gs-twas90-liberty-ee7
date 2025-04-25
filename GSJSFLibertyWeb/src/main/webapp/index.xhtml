@@ -1,0 +1,57 @@
+<ui:composition template="/gswebTemplate.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:portlet="http://java.sun.com/portlet_2_0">
+	<ui:define name="title">GarageSale Login Panel</ui:define>
+	<ui:define name="navBar"></ui:define>
+	<ui:define name="leftBar">
+		<!-- start left-hand navigation contents -->
+		<h:outputText styleClass="outputText" id="loginPageWelcomeText"
+			value="Welcome guest, please log into the NEST env"
+			style="font-family: serif, Arial; font-size: 12pt"></h:outputText>
+		<!-- end left-hand navigation -->
+	</ui:define>
+	<ui:define name="mainContent">
+		<!-- start main content area -->
+		<h:form styleClass="form" id="loginForm">
+			<table>
+				<tbody>
+					<tr>
+						<td align="left"><h:outputText value="CustID:"></h:outputText>
+						</td>
+						<td style="width: 5px"></td>
+						<td><h:inputText styleClass="inputText" id="custID1"
+								value="#{sessionScope.custID}" required="true">
+								<f:validateLength minimum="1" maximum="12"></f:validateLength>
+							</h:inputText>
+							<h:message for="custID1" style="color: red"></h:message>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h:messages styleClass="messages" id="messages1" style="color: red"></h:messages>
+			<br></br>
+			<table>
+				<tbody>
+					<tr>
+						<td align="left"><h:outputText value="Password:"></h:outputText>
+						</td>
+						<td style="width: 5px"></td>
+						<td><h:inputSecret styleClass="inputSecret" id="password1"
+								value="#{sessionScope.password}" required="true">
+								<f:validateLength minimum="1" maximum="12"></f:validateLength>
+							</h:inputSecret>
+							<h:message for="password1" style="color: red"></h:message>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h:messages styleClass="messages" id="messages2" style="color: red"></h:messages>
+			<h:commandButton id="loginButton" styleClass="commandButton"
+				type="submit" value="Login" action="#{pc_Index.login}">
+			</h:commandButton>
+		</h:form>
+		<!-- end main content area -->
+	</ui:define>
+</ui:composition>

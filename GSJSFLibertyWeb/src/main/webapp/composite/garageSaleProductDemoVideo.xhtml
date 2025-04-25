@@ -1,0 +1,20 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:portlet="http://java.sun.com/portlet_2_0">
+	<h:outputScript library="scripts" name="readAndWriteProductDemoFiles.js" target="head"/>
+	<h:outputText id="text2" value="Display video file"
+		styleClass="outputText"
+		style="color: red; text-decoration: blink; font-size: 36pt; text-align: center"></h:outputText>
+	<h:form id="playProductDemoVideoForm">
+		<div id="playProductDemoVideo"></div>
+			<!--  <video id="productDemoVideoID" width="600" height="500" controls="controls">-->
+   				<!--  <source type="video/mp4"></source>-->
+   				<!--  <source src="/GSjsf20LibertyWeb/javax.faces.resource/2011_08_03_4348_2011_SPSS_DM62__Modeler_142.mp4.jsf?ln=videos" type="video/mp4"></source>-->
+ 			<!--  </video>-->
+		<h:inputHidden id="fileName" value="#{param.fileName}"></h:inputHidden>
+	</h:form>
+</ui:composition>
+

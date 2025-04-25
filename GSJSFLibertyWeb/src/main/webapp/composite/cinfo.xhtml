@@ -1,0 +1,22 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:portlet ="http://java.sun.com/portlet_2_0">
+<cc:interface
+   name="cinfo"
+   displayName="label plus text"
+   expert="true"
+   hidden="false"
+   preferred="true">
+    <cc:attribute name="label"  required="true" />
+    <cc:attribute name="id"     required="true" />
+    <cc:attribute name="value"  required="true" />
+</cc:interface>
+<cc:implementation>
+    <h:outputLabel id="lbl_#{cc.attrs.id}" for="#{cc.attrs.id}"
+                   value="#{cc.attrs.label}" />
+    <h:inputText id="#{cc.attrs.id}" value="#{cc.attrs.value}" onclick="return false;" />
+</cc:implementation>
+</ui:composition>

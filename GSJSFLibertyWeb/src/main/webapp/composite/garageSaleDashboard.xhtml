@@ -1,0 +1,21 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:portlet="http://java.sun.com/portlet_2_0">
+	<h:outputScript library="scripts" name="garageSaleDashboard.js" target="head"/>
+	<!-- <h:outputScript library="scripts" name="garageSaleWebSocketsDashboard.js" target="head"/> -->
+	<h:outputText id="dashBoardText" value="Dashboard" styleClass="outputText"
+		style="color: red; text-decoration: blink; font-size: 36pt; text-align: center"></h:outputText>
+	<h:form id="gsDashboardForm">
+		<!-- <div id="messages"></div>-->
+		<h:commandButton value="Hidden" id="gsDashboardButton"
+			styleClass="commandButton" style="visibility: hidden">
+			<!-- <f:ajax execute="@form" render="@none" onevent="sendForDashboard()">
+			</f:ajax> -->
+		</h:commandButton>
+		<div id="databaseMetricsDiv"></div>
+		<!-- <div id="webSocketsMetricsDiv"></div> -->
+	</h:form>
+</ui:composition>

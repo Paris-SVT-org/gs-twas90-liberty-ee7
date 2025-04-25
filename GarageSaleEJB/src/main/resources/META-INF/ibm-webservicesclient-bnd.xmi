@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.etools.webservice.wscbnd:ClientBinding xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.etools.webservice.wscbnd="http://www.ibm.com/websphere/appserver/schemas/5.0.2/wscbnd.xmi" xmi:id="ClientBinding_1209077914906">
+  <componentScopedRefs xmi:id="ComponentScopedRefs_1491942963490" componentNameLink="CustomerInfoSessionBean">
+    <serviceRefs xmi:id="ServiceRef_1491942963490" serviceRefLink="GarageSaleBankManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963490" portQnameNamespaceLink="http://session.wsbankdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleBankManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963491" serviceRefLink="GarageSaleCCManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963491" portQnameNamespaceLink="http://session.ccdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleCCManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963492" serviceRefLink="GarageSaleStoreManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963492" portQnameNamespaceLink="http://session.gsdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleStoreManagerPort"/>
+    </serviceRefs>
+  </componentScopedRefs>
+  <componentScopedRefs xmi:id="ComponentScopedRefs_1491942963491" componentNameLink="CategorySessionBean">
+    <serviceRefs xmi:id="ServiceRef_1491942963493" serviceRefLink="GarageSaleBankManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963493" portQnameNamespaceLink="http://session.wsbankdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleBankManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963494" serviceRefLink="GarageSaleCCManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963494" portQnameNamespaceLink="http://session.ccdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleCCManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963495" serviceRefLink="GarageSaleStoreManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963495" portQnameNamespaceLink="http://session.gsdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleStoreManagerPort"/>
+    </serviceRefs>
+  </componentScopedRefs>
+  <componentScopedRefs xmi:id="ComponentScopedRefs_1491942963492" componentNameLink="OpenjpaSequenceTableSessionBean">
+    <serviceRefs xmi:id="ServiceRef_1491942963496" serviceRefLink="GarageSaleBankManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963496" portQnameNamespaceLink="http://session.wsbankdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleBankManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963497" serviceRefLink="GarageSaleCCManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963497" portQnameNamespaceLink="http://session.ccdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleCCManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963498" serviceRefLink="GarageSaleStoreManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963498" portQnameNamespaceLink="http://session.gsdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleStoreManagerPort"/>
+    </serviceRefs>
+  </componentScopedRefs>
+  <componentScopedRefs xmi:id="ComponentScopedRefs_1491942963493" componentNameLink="ShipRateSessionBean1">
+    <serviceRefs xmi:id="ServiceRef_1491942963499" serviceRefLink="GarageSaleBankManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963499" portQnameNamespaceLink="http://session.wsbankdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleBankManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963500" serviceRefLink="GarageSaleCCManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963500" portQnameNamespaceLink="http://session.ccdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleCCManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963501" serviceRefLink="GarageSaleStoreManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963501" portQnameNamespaceLink="http://session.gsdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleStoreManagerPort"/>
+    </serviceRefs>
+  </componentScopedRefs>
+  <componentScopedRefs xmi:id="ComponentScopedRefs_1491942963494" componentNameLink="MfgCategorySessionBean">
+    <serviceRefs xmi:id="ServiceRef_1491942963502" serviceRefLink="GarageSaleBankManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963502" portQnameNamespaceLink="http://session.wsbankdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleBankManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963503" serviceRefLink="GarageSaleCCManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963503" portQnameNamespaceLink="http://session.ccdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleCCManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963504" serviceRefLink="GarageSaleStoreManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963504" portQnameNamespaceLink="http://session.gsdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleStoreManagerPort"/>
+    </serviceRefs>
+  </componentScopedRefs>
+  <componentScopedRefs xmi:id="ComponentScopedRefs_1491942963495" componentNameLink="ProdReviewSessionBean1">
+    <serviceRefs xmi:id="ServiceRef_1491942963505" serviceRefLink="GarageSaleBankManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963505" portQnameNamespaceLink="http://session.wsbankdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleBankManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963506" serviceRefLink="GarageSaleCCManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963506" portQnameNamespaceLink="http://session.ccdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleCCManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963507" serviceRefLink="GarageSaleStoreManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963507" portQnameNamespaceLink="http://session.gsdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleStoreManagerPort"/>
+    </serviceRefs>
+  </componentScopedRefs>
+  <componentScopedRefs xmi:id="ComponentScopedRefs_1491942963496" componentNameLink="GarageSaleStoreManager">
+    <serviceRefs xmi:id="ServiceRef_1491942963508" serviceRefLink="GarageSaleBankManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963508" portQnameNamespaceLink="http://session.wsbankdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleBankManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963509" serviceRefLink="GarageSaleCCManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963509" portQnameNamespaceLink="http://session.ccdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleCCManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963510" serviceRefLink="GarageSaleStoreManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963510" portQnameNamespaceLink="http://session.gsdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleStoreManagerPort"/>
+    </serviceRefs>
+  </componentScopedRefs>
+  <componentScopedRefs xmi:id="ComponentScopedRefs_1491942963497" componentNameLink="TaxRateSessionBean1">
+    <serviceRefs xmi:id="ServiceRef_1491942963511" serviceRefLink="GarageSaleBankManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963511" portQnameNamespaceLink="http://session.wsbankdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleBankManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963512" serviceRefLink="GarageSaleCCManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963512" portQnameNamespaceLink="http://session.ccdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleCCManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963513" serviceRefLink="GarageSaleStoreManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963513" portQnameNamespaceLink="http://session.gsdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleStoreManagerPort"/>
+    </serviceRefs>
+  </componentScopedRefs>
+  <componentScopedRefs xmi:id="ComponentScopedRefs_1491942963498" componentNameLink="CustomerSessionBean">
+    <serviceRefs xmi:id="ServiceRef_1491942963514" serviceRefLink="GarageSaleBankManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963514" portQnameNamespaceLink="http://session.wsbankdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleBankManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963515" serviceRefLink="GarageSaleCCManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963515" portQnameNamespaceLink="http://session.ccdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleCCManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963516" serviceRefLink="GarageSaleStoreManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963516" portQnameNamespaceLink="http://session.gsdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleStoreManagerPort"/>
+    </serviceRefs>
+  </componentScopedRefs>
+  <componentScopedRefs xmi:id="ComponentScopedRefs_1491942963499" componentNameLink="SettingSessionBean">
+    <serviceRefs xmi:id="ServiceRef_1491942963517" serviceRefLink="GarageSaleBankManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963517" portQnameNamespaceLink="http://session.wsbankdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleBankManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963518" serviceRefLink="GarageSaleCCManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963518" portQnameNamespaceLink="http://session.ccdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleCCManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963519" serviceRefLink="GarageSaleStoreManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963519" portQnameNamespaceLink="http://session.gsdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleStoreManagerPort"/>
+    </serviceRefs>
+  </componentScopedRefs>
+  <componentScopedRefs xmi:id="ComponentScopedRefs_1491942963500" componentNameLink="InventorySessionBean">
+    <serviceRefs xmi:id="ServiceRef_1491942963520" serviceRefLink="GarageSaleBankManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963520" portQnameNamespaceLink="http://session.wsbankdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleBankManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963521" serviceRefLink="GarageSaleCCManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963521" portQnameNamespaceLink="http://session.ccdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleCCManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963522" serviceRefLink="GarageSaleStoreManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963522" portQnameNamespaceLink="http://session.gsdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleStoreManagerPort"/>
+    </serviceRefs>
+  </componentScopedRefs>
+  <componentScopedRefs xmi:id="ComponentScopedRefs_1491942963501" componentNameLink="StoreCreditSessionBean">
+    <serviceRefs xmi:id="ServiceRef_1491942963523" serviceRefLink="GarageSaleBankManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963523" portQnameNamespaceLink="http://session.wsbankdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleBankManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963524" serviceRefLink="GarageSaleCCManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963524" portQnameNamespaceLink="http://session.ccdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleCCManagerPort"/>
+    </serviceRefs>
+    <serviceRefs xmi:id="ServiceRef_1491942963525" serviceRefLink="GarageSaleStoreManagerService">
+      <portQnameBindings xmi:id="PortQnameBinding_1491942963525" portQnameNamespaceLink="http://session.gsdb.gs.svt.websphere.ibm.com/" portQnameLocalNameLink="GarageSaleStoreManagerPort"/>
+    </serviceRefs>
+  </componentScopedRefs>
+</com.ibm.etools.webservice.wscbnd:ClientBinding>

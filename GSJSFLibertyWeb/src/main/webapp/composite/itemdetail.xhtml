@@ -1,0 +1,87 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:portlet="http://java.sun.com/portlet_2_0">
+
+	<h:outputText styleClass="outputText"
+		value="Please enter the quantity that you want to obtain, and click the Add to Cart button">
+	</h:outputText>
+	<br></br>
+	<h:form styleClass="form" id="itemDetailForm">
+
+		<table border="0">
+			<tbody>
+				<tr>
+					<td width="55%"><h:graphicImage
+							value="#{resource[garageSaleJSFActions.itemImageName]}"
+							style="border: thin solid gray" id="itemPhoto" /></td>
+					<td width="45%">
+						<table cellpadding="1" border="2" style="">
+							<tbody>
+								<tr>
+									<td align="left">Category</td>
+									<td style="width: 5px"></td>
+									<td><h:outputText styleClass="outputText"
+											id="categoryName1"
+											value="#{garageSaleJSFActions._inventory.categoryName}">
+										</h:outputText>
+									</td>
+								</tr>
+								<tr>
+									<td align="left">Manufacturer:</td>
+									<td style="width: 5px"></td>
+									<td><h:outputText styleClass="outputText" id="mfgName1"
+											value="#{garageSaleJSFActions._inventory.mfgName}">
+										</h:outputText>
+									</td>
+								</tr>
+								<tr>
+									<td align="left">Item name:</td>
+									<td style="width: 5px"></td>
+									<td><h:outputText styleClass="outputText"
+											id="description1"
+											value="#{garageSaleJSFActions._inventory.description}">
+										</h:outputText>
+									</td>
+								</tr>
+								<tr>
+									<td align="left">Price:</td>
+									<td style="width: 5px"></td>
+									<td><h:outputText styleClass="outputText" id="unitPrice1"
+											value="#{garageSaleJSFActions._inventory.unitPrice}">
+										</h:outputText>
+									</td>
+								</tr>
+								<tr>
+									<td align="left">Quantity:</td>
+									<td style="width: 5px"></td>
+									<td><h:inputText styleClass="inputText"
+											id="numberToPurchase1"
+											value="#{garageSaleSessionBean._quantityString}"
+											required="true">
+											<f:validator validatorId="checkQuantity" />
+										</h:inputText>
+										<h:message for="numberToPurchase1"></h:message>
+									</td>
+								</tr>
+							</tbody>
+						</table></td>
+				</tr>
+				<tr>
+					<td>
+					<h:commandLink value="Add Product Review" id="reviewProductID"
+							action="#{garageSaleJSFActions.productReview}">
+					</h:commandLink>
+					</td>
+
+					<td><h:messages styleClass="messages" id="messages1"></h:messages>
+						<h:commandButton type="submit" value="Add to Cart"
+							styleClass="commandExButton" id="addToCartButton"
+							action="#{garageSaleJSFActions.addToCart}"></h:commandButton></td>
+				</tr>
+			</tbody>
+		</table>
+	</h:form>
+	<br></br>
+</ui:composition>

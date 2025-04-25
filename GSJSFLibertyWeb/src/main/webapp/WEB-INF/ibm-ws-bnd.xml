@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webservices-bnd xmlns="http://websphere.ibm.com/xml/ns/javaee" 
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:jee="http://xmlns.jcp.org/xml/ns/javaee"  
+                 xsi:schemaLocation="http://websphere.ibm.com/xml/ns/javaee http://websphere.ibm.com/xml/ns/javaee/ibm-ws-bnd_1_0.xsd"
+                 version="1.0">
+
+	<service-ref name="GarageSaleCCManagerService" >
+		<port name="GarageSaleCCManagerPort">
+			<properties vendor="IBM" />
+		</port>
+		<properties http.conduit.client.ConnectionTimeout="300000" http.conduit.client.ReceiveTimeout="360000" />
+	</service-ref>
+	<service-ref name="GarageSaleStoreManagerService" >
+		<port name="GarageSaleStoreManagerPort">
+			<properties vendor="IBM" />
+		</port>
+		<properties http.conduit.client.ConnectionTimeout="300000" http.conduit.client.ReceiveTimeout="360000" />
+	</service-ref>
+	<service-ref name="GarageSaleBankManagerService" >
+		<port name="GarageSaleBankManagerPort">
+			<properties vendor="IBM" />
+		</port>
+		<properties http.conduit.client.ConnectionTimeout="300000" http.conduit.client.ReceiveTimeout="360000" />
+	</service-ref>
+
+
+</webservices-bnd>

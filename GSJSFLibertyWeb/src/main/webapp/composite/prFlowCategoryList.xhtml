@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:portlet="http://java.sun.com/portlet_2_0">
+	<h:form id="categoryForm">
+		<c:set target="#{flash.now}" property="categoriesDataModel"
+			value="#{garageSaleJSFActions.categories}" />
+		<h:dataTable border="1" cellpadding="2" cellspacing="0"
+			columnClasses="columnClass1" headerClass="headerClass"
+			footerClass="footerClass" rowClasses="rowClass1, rowClass2"
+			styleClass="dataTable" id="categoryTable" var="varcategories"
+			value="#{flash.now.categoriesDataModel}">
+			<h:column id="categoryColumn">
+				<f:facet name="header">
+					<h:outputText styleClass="outputText" value="Category" id="text2"></h:outputText>
+				</f:facet>
+				<h:commandLink action="#{garageSaleJSFActions.prFlowDetailSetup}"
+					value="#{varcategories.categoryName}" id="showMfgCategoryCLink" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</ui:composition>

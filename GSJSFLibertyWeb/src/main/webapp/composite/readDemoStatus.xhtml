@@ -1,0 +1,17 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:portlet="http://java.sun.com/portlet_2_0">
+
+	<h:form styleClass="form" id="readDemoSuccessForm">
+		<h:outputText styleClass="outputText"
+			value="Dear user: #{sessionScope.custID} your read request submitted">
+		</h:outputText>
+		<br></br>
+		<h:outputText styleClass="outputText"
+			value="Please go to Dashboard to see current status.">
+		</h:outputText>
+	</h:form>
+	<br></br>
+</ui:composition>

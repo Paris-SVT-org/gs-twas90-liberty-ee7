@@ -1,0 +1,36 @@
+.mctable {
+    border: 1px solid #EAEAEA;
+    border-collapse: collapse;
+}
+
+.mctable td, .mctable th {
+    border: 1px solid #EAEAEA;
+}
+
+.mctable tr.altrow, .mctable tr.altrow input {
+    background-color: #EEEEEE;
+    color: #000000;
+}
+
+.mctable th {
+    border: 1px solid #AAAAAA;
+    background-color: #CCCCCC;
+    font-weight: bold;
+    text-align: center;
+    width :50px;
+}
+
+.mctable input {
+	border : 0px;
+}
+
+.mctable tr:hover, .mctable tr:hover input {
+    background-color: #B1CBE1;
+    color: #000000;
+}
+
+.mctable tr.footer th, .mctable tr.footer th a {
+    background-color: #DDDDDD;
+    text-align: right;
+    color: #777780;
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facelet-taglib xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_0.xsd"
+                  version="2.0">
+      <namespace>http://svt.was.org/cinfo-taglib</namespace>             
+      <tag>
+        <tag-name>cinfotag</tag-name>
+          <component>
+            <component-type>cinfocc</component-type>
+            <renderer-type>cinfocc</renderer-type>
+         </component>
+     </tag>
+</facelet-taglib>

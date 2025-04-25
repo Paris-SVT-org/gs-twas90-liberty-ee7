@@ -1,0 +1,33 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+	xmlns:portlet ="http://java.sun.com/portlet_2_0"
+	template="/gswebTemplate.xhtml">
+	<ui:define name="title">GarageSale Logout</ui:define>
+	<ui:define name="navBar">
+	</ui:define>
+	<ui:define name="leftBar">
+		<!-- start left-hand navigation contents -->
+		<h:outputText styleClass="outputText" id="loginPageWelcomeText"
+			value="Welcome guest, please log in"
+			style="font-family: serif, Arial; font-size: 12pt"></h:outputText>
+		<!-- end left-hand navigation -->
+	</ui:define>
+
+	<ui:define name="mainContent">
+
+		<p></p>
+		<h:outputText styleClass="outputText" id="text1"
+			value="Thank you for shopping with us. If you want, you can log back again."></h:outputText>
+		<h:outputLink value="/GSjsf20Web/index.jsf"
+			styleClass="outputLinkEx" id="linkEx1">
+			<h:outputText id="text2" styleClass="outputText" value="GarageSale"></h:outputText>
+		</h:outputLink>
+		<p></p>
+		<p></p>
+
+	</ui:define>
+</ui:composition>

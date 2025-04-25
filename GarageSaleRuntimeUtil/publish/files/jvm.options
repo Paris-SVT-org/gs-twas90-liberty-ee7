@@ -1,0 +1,34 @@
+# WebSphere Application Server Liberty
+# This file contains options that are passed directly to the JVM on startup
+# See the InfoCenter for full documentation
+
+# Uncomment the following line to set the maximum heap size to 1024m
+#-Xmx1024m
+
+# Uncomment the following line to set a system property
+#-Dcom.ibm.example.system.property=ExampleValue
+
+# Uncomment the following line to enable verbose output for class loading
+#-verbose:class
+
+#-Dcom.sun.jndi.ldap.object.disableEndpointIdentification=true
+#-verbose:gc
+#-Xdump:heap
+#-Xaggressive
+#-Xverbosegclog:/logs/verbosegc.%seq.log,5,300000
+#-verbose:sizes
+
+#GarageSale WebServices Endpoint addresses.
+
+-DGarageSaleCCManagerService.endPoint.Address=https://localhost:9443/CreditCardEJB/GarageSaleCCManagerService
+-DGarageSaleStoreManagerService.endPoint.Address=https://localhost:9443/GarageSaleEJB/GarageSaleStoreManagerService
+-DGarageSaleBankManagerService.endPoint.Address=https://localhost:9443/WSBankEJB/GarageSaleBankManagerService
+-DGarageSaleProductShipService.endPoint.Address=https://localhost:9443/GSjsf20LibertyWeb
+-DGarageSaleWebSocket.endPoint.Address=wss://localhost:9443/GSjsf20LibertyWeb
+-DPersonaPMIMetrics.endPoint.Address=wss://localhost:9443/WASPersonaWebServicesPMIWeb
+-DGarageSale.Product.Videos.Cache.Size=20
+-DGarageSale.Product.Videos.Dir.Location=c:\\opt\\videos
+-DGarageSale.Enable.Dashboard.Metrics=true
+-DGarageSale.Enable.WebSockets.Concurrency=true
+-DWSAT_ROLLBACK_CC=false
+-DWSAT_ROLLBACK_WSBANK=false

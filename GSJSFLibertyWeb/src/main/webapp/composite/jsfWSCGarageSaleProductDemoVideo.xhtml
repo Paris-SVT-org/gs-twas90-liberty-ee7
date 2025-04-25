@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:portlet="http://java.sun.com/portlet_2_0">
+	
+	<!-- <h:outputScript library="scripts" name="readAndWriteProductDemoFiles.js" target="head"/>-->
+	<h:outputText id="text2" value="Read Product Demo video file"
+		styleClass="outputText"
+		style="color: red; text-decoration: blink; font-size: 36pt; text-align: center"></h:outputText>
+	<form jsf:id="readProductDemoVideoForm">
+		<div id="playProductDemoVideo"></div>
+		<table border="1" cellpadding="2" cellspacing="0" style="text-align: center" class="dataTable">
+			<tbody>
+				<tr class="rowClass1">
+					<td class="headerClass" scope="col">
+						<h:outputText id="fileNameLabel" value="File name: " styleClass="outputText"></h:outputText>
+					</td>
+					<td class="columnClass1">
+						<h:inputText id="fileName" p:value="#{productUploadManagedBean.fileName}" styleClass="inputText" readonly="true">
+						
+						</h:inputText>
+					</td>
+				</tr>
+				<tr class="rowClass1">
+					<td class="headerClass" scope="col">
+						<h:outputText id="itemNameLabel" p:value="Item name: " styleClass="outputText"></h:outputText>
+					</td>
+					<td class="columnClass1">
+						<h:inputText id="itemID" value="#{productUploadManagedBean.itemID}" styleClass="inputText" readonly="true"></h:inputText>
+					</td>
+				</tr>
+				<tr class="rowClass1">
+					<td class="headerClass" scope="col">
+						<h:outputText id="unitPriceLabel" value="Unit price: " styleClass="outputText"></h:outputText>
+					</td>
+					<td class="columnClass1">
+						<h:inputText id="unitPrice" value="#{productUploadManagedBean.unitPrice}" styleClass="inputText" readonly="true"></h:inputText>
+					</td>
+				</tr>
+				<tr class="rowClass1">
+					<td class="headerClass" scope="col">
+						<h:outputText id="salePriceLabel" value="Sale price: " styleClass="outputText"></h:outputText>
+					</td>
+					<td class="columnClass1">
+						<h:inputText id="salePrice" value="#{productUploadManagedBean.salePrice}" styleClass="inputText" readonly="true"></h:inputText>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<br/>
+		<br/>
+			<h:commandButton type="submit" value="Request Demo File.."
+				styleClass="commandExButton" id="demoButton"
+				action="#{jsfWebSocketsClientActions.getProductDemoVideo}">
+			<f:param name="itemID"		value="#{productUploadManagedBean.itemID}"> </f:param>				
+			<f:param name="unitPrice"	value="#{productUploadManagedBean.unitPrice}"> </f:param>				
+			<f:param name="salePrice"	value="#{productUploadManagedBean.salePrice}"> </f:param>				
+			<f:param name="fileName"	value="#{productUploadManagedBean.fileName}"> </f:param>				
+			</h:commandButton>		
+	</form>
+</ui:composition>
+

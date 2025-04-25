@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:dojo="http://j4fry.org/dojo"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+	xmlns:portlet ="http://java.sun.com/portlet_2_0">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title><ui:insert name="title">gswebTemplate</ui:insert></title>
+		<style type="text/css">
+			<ui:insert name="styles">
+				@import "${request.contextPath}/resources/dojo/dojo/resources/dojo.css";
+			</ui:insert>
+		</style>
+		<ui:insert name="djConfig">
+			<script type="text/javascript">
+				var djConfig = {
+					isDebug: false, 
+					parseOnLoad: true, 
+					extraLocale: ['en-us'], 
+					baseUrl:'${request.contextPath}/resources/dojo/dojo/', 
+					modulePaths: {
+						'dojox': '${request.contextPath}/resources/dojo/dojox',
+						'dojo': '${request.contextPath}/resources/dojo/dojo', 
+						'dijit': '${request.contextPath}/resources/dojo/dijit'
+					}
+				};
+			</script>
+			<script type="text/javascript" src="${request.contextPath}/resources/dojo/dojo/dojo.js">
+			 </script>
+			</ui:insert>
+		<ui:insert name="scripts"></ui:insert>
+		<script type="text/javascript">
+		    dojo.require("dojox.widget.FisheyeLite");
+		</script>
+	
+</h:head>
+<f:view>
+	<h:body class="#{dojoBean.style} nojs">
+		<h:outputStylesheet name="stylesheet.css" />
+	    <h:outputScript  name="utils.js" />
+		
+		<ui:include src="header.xhtml" />
+		<hr></hr>
+		<ui:insert name="navBar"></ui:insert>
+		<hr></hr>
+		<table class="mainBox" border="0" cellpadding="0" width="100%" height="87%" cellspacing="0">
+			<tbody>
+				<tr>
+					<td class="leftNavTD" align="left" valign="top" width="25%">
+					<div class="leftNavBox"><ui:insert name="leftBar"></ui:insert></div>
+					</td>
+					<td class="mainContentTD" align="left" valign="top" width="50%">
+					<div class="mainNavBox">
+					<h:panelGroup id="messages" binding="#{dojoHelper.binding['messages']}"> 
+						<h:messages />
+					</h:panelGroup>
+					
+					<ui:insert name="mainContent"></ui:insert>
+					</div>
+					</td>
+					<td class="cartID" align="left" valign="top" width="25%">
+					<div class="cartNavBox"><ui:insert name="cartContent"></ui:insert></div>
+					</td>
+					
+				</tr>
+			</tbody>
+		</table>
+		<hr></hr>
+		
+		<table class="mainBox" border="0" cellpadding="0" width="100%" height="87%" cellspacing="0">
+			<tbody>
+				<tr>
+					<td  align="left" valign="top" width="25%">
+					</td>
+					<td  align="left" valign="top" width="50%">
+						<div>
+							<ui:insert name="onSaleContent"></ui:insert>
+						</div>
+					</td>
+					<td align="left" valign="top" width="25%">
+						<div>
+							<ui:insert name="dashboardContent"></ui:insert>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr></hr>
+		<ui:include src="footer.xhtml" />
+		<hr></hr>
+		<script type="text/javascript">
+		  	//<![CDATA[
+   		  	dojo.addOnLoad(function() {
+   		  		dojo.query(".fishMenu").forEach(function(n) {
+       		  		// in IE + XHTML FisheyeLite will leave fonts smaller after the effect
+       		  		if (dojo.isIE) n.style.fontSize = "17em";
+    	    		var dijitWidget = dijit.byId(n.id);
+    	    		if (dijitWidget != null) {
+    		    		dijitWidget.destroy();
+    	    		}
+       		  		var widget = new dojox.widget.FisheyeLite({properties:{fontSize:{end:30}}}, n);
+       		  		widget.show();
+       		  		widget.hide();
+   		  		});
+	      	});
+			//]]>
+		</script>
+	</h:body>
+</f:view>
+</html>

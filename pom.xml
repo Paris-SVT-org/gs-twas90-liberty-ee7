@@ -1,0 +1,283 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>net.wasdev.maven.parent</groupId>
+        <artifactId>java8-parent</artifactId>
+        <version>1.4</version>
+    </parent>
+  <groupId>com.ibm.ws.svt.gs.twas90.liberty.ease4j.garagesale-ee7</groupId>
+  <artifactId>garageSale-ee7</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <!-- Define all the common variables needed for the sub modules -->
+  <properties>
+	<!-- App name customization -->
+	<twas.ear.version>ee7</twas.ear.version>
+	<twas.ear.fileName>GarageSale-tWAS90</twas.ear.fileName>
+
+	<!-- JEE Spec API versions used by this application -->
+    <jee.version>7.0</jee.version>
+	<jee.spec.version>7</jee.spec.version>
+	<jee.persistence.api>2.1.1</jee.persistence.api>
+	<jee.ejb.api>3.2</jee.ejb.api>
+	<jee.annotation.api>1.3</jee.annotation.api>
+	<jee.el.api>3.0.1-b04</jee.el.api>
+	<jee.cdi.api>2.0</jee.cdi.api>
+	<jee.interceptor.api>1.2.1</jee.interceptor.api>
+	<jee.concurrent.api>1.0</jee.concurrent.api>
+	<jee.faces.api>2.2</jee.faces.api>
+	<jee.websocket.client.api>1.1</jee.websocket.client.api>
+	<jee.websocket.all.api>1.1</jee.websocket.all.api>
+	<jee.websocket.server.api>9.4.4.v20170414</jee.websocket.server.api>
+	<jee.servlet.api>4.0.0</jee.servlet.api>
+	<jee.validation.api>2.0.1.Final</jee.validation.api>
+	<jee.jws.api>1.1</jee.jws.api>
+	<jee.jaxrs.api>2.1</jee.jaxrs.api>
+	<jee.jaxb.api>2.3.1</jee.jaxb.api>
+
+	<!-- Apache API Spec versions used by this application -->
+
+	<apache.myfaces.api>2.2.12</apache.myfaces.api>
+	<apache.wink.client>1.1.3-incubating</apache.wink.client>
+
+	<!-- Websphere Specs -->
+	
+	<ws.json.api>1.0.16</ws.json.api>
+	
+	<!-- Maven plugin versions -->
+	<maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.version>3.5.1</maven.compiler.version>
+    <maven.ear.version>2.10</maven.ear.version>
+    <maven.war.version>3.0.0</maven.war.version>
+    <maven.jar.version>3.1.2</maven.jar.version>
+    <maven.ejb.version>2.5</maven.ejb.version>
+	<maven.git.commit.id.version>4.9.9</maven.git.commit.id.version>
+  </properties>
+  
+  <!-- Maven depedency management -->
+  <dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>javax.ejb</groupId>
+			<artifactId>javax.ejb-api</artifactId>
+			<version>${jee.ejb.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>javax.persistence</artifactId>
+			<version>${jee.persistence.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>${jee.annotation.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>javax.jws</groupId>
+		    <artifactId>javax.jws-api</artifactId>
+		    <version>${jee.jws.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>${jee.jaxrs.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.myfaces.core</groupId>
+			<artifactId>myfaces-api</artifactId>
+			<version>${apache.myfaces.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>${jee.el.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>${jee.cdi.api}</version>
+			<scope>provided</scope>
+		</dependency>	
+		<dependency>
+			<groupId>javax.interceptor</groupId>
+			<artifactId>javax.interceptor-api</artifactId>
+			<version>${jee.interceptor.api}</version>
+			<scope>provided</scope>
+		</dependency>	
+		<dependency>
+			<groupId>org.apache.wink</groupId>
+			<artifactId>wink-client-apache-httpclient</artifactId>
+			<version>${apache.wink.client}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.enterprise.concurrent</groupId>
+			<artifactId>javax.enterprise.concurrent-api</artifactId>
+			<version>${jee.concurrent.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.faces</groupId>
+			<artifactId>javax.faces-api</artifactId>
+			<version>${jee.faces.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.websocket</groupId>
+			<artifactId>javax.websocket-client-api</artifactId>
+			<version>${jee.websocket.client.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${jee.servlet.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.websocket</groupId>
+			<artifactId>javax.websocket-all</artifactId>
+			<version>${jee.websocket.all.api}</version>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>${jee.validation.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>javax.xml.bind</groupId>
+		    <artifactId>jaxb-api</artifactId>
+		    <version>${jee.jaxb.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.websphere.appserver.api</groupId>
+			<artifactId>com.ibm.websphere.appserver.api.json</artifactId>
+			<version>${ws.json.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.websocket</groupId>
+			<artifactId>javax-websocket-server-impl</artifactId>
+			<version>${jee.websocket.server.api}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+  </dependencyManagement>
+
+  <!-- Build customization -->
+  <build>
+	<!-- Plugin management customization -->
+	<pluginManagement>
+	  <plugins>
+		  <plugin>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<configuration>
+			  <source>${maven.compiler.source}</source>
+			  <target>${maven.compiler.target}</target>
+			</configuration>
+			<version>${maven.compiler.version}</version>
+		  </plugin>
+		  <plugin>
+			<artifactId>maven-ejb-plugin</artifactId>
+			<configuration>
+			  <ejbVersion>${jee.ejb.api}</ejbVersion>
+			</configuration>
+			<version>${maven.ejb.version}</version>
+		  </plugin>
+		  <plugin>
+			<artifactId>maven-war-plugin</artifactId>
+			<configuration>
+				<outputFileNameMapping>@{artifactId}@.@{extension}@</outputFileNameMapping>
+			</configuration>
+			<version>${maven.war.version}</version>
+		  </plugin>
+		  <plugin>
+			<artifactId>maven-ear-plugin</artifactId>
+			<configuration>
+	<!--      <fileName>${project.artifactId}</fileName>
+			  <fileNameMapping>no-version</fileNameMapping> -->
+			  <fileNameMapping>no-version</fileNameMapping>
+			  <applicationName>${twas.ear.fileName}-${twas.ear.version}-${git.commit.id.abbrev}</applicationName>
+			  <displayName>${twas.ear.fileName}-${twas.ear.version}-${git.commit.id.abbrev}</displayName>
+			  <applicationXml>${project.build.directory}/application.xml</applicationXml>
+			  <!-- This name customization does not support by JAM, reverting my changes to use default ear file name -->
+			  <!--<finalName>${twas.ear.fileName}-${twas.ear.version}-${git.commit.id.abbrev}</finalName>-->
+			  <finalName>${project.artifactId}</finalName>
+			  <version>${jee.spec.version}</version>
+			  <defaultLibBundleDir>lib</defaultLibBundleDir>
+			  <archive>
+				<manifest>
+					<!-- <addBuildEnvironmentEntries>true</addBuildEnvironmentEntries> -->
+				</manifest>
+				<manifestSections>
+					<manifestSection>
+						<name>tWAS SVT Application Info</name>
+						<manifestEntries>
+							<key>App name:GarageSale, EE Version:${jee.version}, Runtime support:WAS 9.0.5.x, Git full commit id:${git.commit.id.full}, Git abrev commit id:${git.commit.id.abbrev}, Build time:${git.build.time}, Build version:${git.build.version}</key>
+						</manifestEntries>
+					</manifestSection>
+				</manifestSections>
+			  </archive>
+			</configuration>
+			<version>${maven.ear.version}</version>
+		  </plugin>
+		  <plugin>
+	<!-- https://mvnrepository.com/artifact/io.github.git-commit-id/git-commit-id-maven-plugin -->
+			<groupId>io.github.git-commit-id</groupId>
+			<artifactId>git-commit-id-maven-plugin</artifactId>
+			<executions>
+				<execution>
+					<id>get-the-git-infos</id>
+					<goals>
+						<goal>revision</goal>
+					</goals>
+					<phase>initialize</phase>
+				</execution>
+			</executions>
+			<configuration>
+				<generateGitPropertiesFile>true</generateGitPropertiesFile>
+				<generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+				<includeOnlyProperties>
+					<includeOnlyProperty>^git.build.(time|version)$</includeOnlyProperty>
+					<includeOnlyProperty>^git.commit.id.(abbrev|full)$</includeOnlyProperty>
+				</includeOnlyProperties>
+				<commitIdGenerationMode>full</commitIdGenerationMode>
+			</configuration>
+			<version>${maven.git.commit.id.version}</version>
+		</plugin>	  
+	  </plugins>
+	  
+	</pluginManagement>
+  </build>
+  
+  <!-- Module dependencies -->
+  <modules>
+  	<module>WSBankDBJPA</module>
+  	<module>WSBankEJB</module>
+<!--	<module>WSBankEJB_HTTPRouter</module>-->
+  	<module>CreditCardDBJPA</module>
+  	<module>CreditCardEJB</module>
+<!--  	<module>CreditCardEJB_HTTPRouter</module>-->
+  	<module>GarageSaleWSClient</module>
+  	<module>GarageSaleDBJPA</module>
+  	<module>GarageSaleEJB</module>
+<!--  	<module>GarageSaleEJB_HTTPRouter</module>-->
+  	<module>ProdReviewTaxShipRateEJB</module>
+  	<module>WASPersonaWebServicesPMIWeb</module>
+  	<module>GSJSFLibertyWeb</module>
+  	<module>GarageSaleLibertyEAR</module>
+  	<module>GarageSaleRuntimeUtil</module>
+  </modules>
+</project>
