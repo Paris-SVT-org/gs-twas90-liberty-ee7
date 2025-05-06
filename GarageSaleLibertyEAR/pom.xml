@@ -10,6 +10,10 @@
 	<artifactId>GarageSaleLibertyEAR</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>ear</packaging>
+	<properties>
+	    <maven.compiler.source>1.8</maven.compiler.source>
+	    <maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
 	<description>!!!EAR resources from the root directory need to be moved under
 		src/main/application!!!</description>
 	<build>
