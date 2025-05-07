@@ -1,2 +1,3 @@
 # gs-twas90-liberty-ee7
-GarageSale tWAS90 EE7 version migrated to Websphere liberty runtime
+GarageSale tWAS90 EE7 version migrated to Websphere liberty runtime.
+Deploying to EASeJ service.
