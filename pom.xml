@@ -214,7 +214,7 @@
 			  <applicationXml>${project.build.directory}/application.xml</applicationXml>
 			  <!-- This name customization does not support by JAM, reverting my changes to use default ear file name -->
 			  <!--<finalName>${twas.ear.fileName}-${twas.ear.version}-${git.commit.id.abbrev}</finalName>-->
-			  <finalName>${project.artifactId}</finalName>
+			  <!--<finalName>${project.artifactId}</finalName>-->
 			  <version>${jee.spec.version}</version>
 			  <defaultLibBundleDir>lib</defaultLibBundleDir>
 			  <archive>
