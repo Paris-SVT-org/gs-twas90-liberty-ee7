@@ -47,9 +47,9 @@
     <!--  </basicRegistry> -->
 
     <!-- To allow access to this server from a remote client host="*" has been added to the following element -->
-    <httpEndpoint host="*" httpPort="${default.http.port}" httpsPort="${default.https.port}" id="defaultHttpEndpoint"/>
-	<keyStore id="defaultKeyStore" password="${env.keystore.default.password}" />
-	<quickStartSecurity userName="${env.qs.security.username}" userPassword="${env.qs.security.password}"/>
+    <httpEndpoint host="*" httpPort="${DEFAULT_HTTP_PORT}" httpsPort="${DEFAULT_HTTPS_PORT}" id="defaultHttpEndpoint"/>
+	<keyStore id="defaultKeyStore" password="${env.KEYSTORE_DEFAULT_PASSWORD}" />
+	<quickStartSecurity userName="${env.QS_SECURITY_USERNAME}" userPassword="${env.QS_SECURITY_PASSWORD}"/>
 
     <!-- Automatically expand WAR files and EAR files -->
      <!-- Automatically expand WAR files and EAR files -->
@@ -63,24 +63,24 @@
 	
 <!--Disable JAX-RS thirdParty support as it is not supported in EASeJ service -->
 	
-<!--	<library id="thirdPartyLib">
+	<library id="thirdPartyLib">
 		<fileset dir="${shared.resource.dir}/jaxrsThirdPartyJars" includes="*.jar" scanInterval="5s"/>
-    </library>-->
+    </library>
 	
 	<dataSource id="jdbc/gsdb" jdbcDriverRef="GSDBProvider" jndiName="jdbc/gsdb" type="javax.sql.XADataSource">
-		<properties databaseName="${env.app.gsdb.name}" driverType="4" password="${env.app.gsdb.password}" portNumber="${env.app.gsdb.port}" serverName="${env.app.gsdb.hostname}" user="${env.app.gsdb.user}"/>
+		<properties databaseName="${env.APP_GSDB_NAME}" driverType="4" password="${env.APP_GSDB_PASSWORD}" portNumber="${env.APP_GSDB_PORT}" serverName="${env.APP_GSDB_HOSTNAME}" user="${env.APP_GSDB_USER}"/>
 		<connectionManager id="jdbc/gsdb" maxPoolSize="300" minPoolSize="50"/>
 	</dataSource>
 	<dataSource id="jdbc/ccdb" jdbcDriverRef="GSDBProvider" jndiName="jdbc/ccdb" type="javax.sql.XADataSource">
-		<properties databaseName="${env.app.ccdb.name}" driverType="4" password="${env.app.ccdb.password}" portNumber="${env.app.ccdb.port}" serverName="${env.app.ccdb.hostname}" user="${env.app.ccdb.user}"/>
+		<properties databaseName="${env.APP_CCDB_NAME}" driverType="4" password="${env.APP_CCDB_PASSWORD}" portNumber="${env.APP_CCDB_PORT}" serverName="${env.APP_CCDB_HOSTNAME}" user="${env.APP_CCDB_USER}"/>
 		<connectionManager id="jdbc/ccdb" maxPoolSize="200" minPoolSize="50"/>
 	</dataSource>
 	<dataSource id="jdbc/wsbankdb" jdbcDriverRef="GSDBProvider" jndiName="jdbc/wsbankdb" type="javax.sql.XADataSource">
-		<properties databaseName="${env.app.wsbankdb.name}" driverType="4" password="${env.app.wsbankdb.password}" portNumber="${env.app.wsbankdb.port}" serverName="${env.app.wsbankdb.hostname}" user="${env.app.wsbankdb.user}"/>
+		<properties databaseName="${env.APP_WSBANKDB_NAME}" driverType="4" password="${env.APP_WSBANKDB_PASSWORD}" portNumber="${env.APP_WSBANKDB_PORT}" serverName="${env.APP_WSBANKDB_HOSTNAME}" user="${env.APP_WSBANKDB_USER}"/>
 		<connectionManager id="jdbc/wsbankdb" maxPoolSize="200" minPoolSize="50"/>
 	</dataSource>
 	<dataSource id="SessionDS" jdbcDriverRef="GSDBProvider" jndiName="jdbc/Sessions" type="javax.sql.XADataSource">
-		<properties databaseName="${env.app.sessiondb.name}" driverType="4" password="${env.app.sessiondb.password}" portNumber="${env.app.sessiondb.port}" serverName="${env.app.sessiondb.hostname}" user="${env.app.sessiondb.user}"/>
+		<properties databaseName="${env.APP_SESSIONDB_NAME}" driverType="4" password="${env.APP_SESSIONDB_PASSWORD}" portNumber="${env.APP_SESSIONDB_PORT}" serverName="${env.APP_SESSIONDB_HOSTNAME}" user="${env.APP_SESSIONDB_USER}"/>
 		<connectionManager id="jdbc/Sessions" maxPoolSize="200" minPoolSize="50"/>
 	</dataSource>
 	<httpSessionDatabase dataSourceRef="SessionDS" id="SessionDB"  writeContents="ALL_SESSION_ATTRIBUTES" writeFrequency="END_OF_SERVLET_SERVICE"/>
