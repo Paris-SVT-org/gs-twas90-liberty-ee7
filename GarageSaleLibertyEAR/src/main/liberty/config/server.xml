@@ -72,19 +72,19 @@
     </library>
 	
 	<dataSource id="jdbc/gsdb" jdbcDriverRef="ease.db2jcc4" jndiName="jdbc/gsdb" type="javax.sql.XADataSource">
-		<properties databaseName="${env.APP_GSDB_NAME}" driverType="4" password="${env.APP_GSDB_PASSWORD}" portNumber="${env.APP_GSDB_PORT}" serverName="${env.APP_GSDB_HOSTNAME}" user="${env.APP_GSDB_USER}"/>
+		<properties databaseName="${env.APP_GSDB_NAME}" driverType="4" password="${APP_GSDB_PASSWORD}" portNumber="${env.APP_GSDB_PORT}" serverName="${env.APP_GSDB_HOSTNAME}" user="${env.APP_GSDB_USER}"/>
 		<connectionManager id="jdbc/gsdb" maxPoolSize="300" minPoolSize="50"/>
 	</dataSource>
 	<dataSource id="jdbc/ccdb" jdbcDriverRef="ease.db2jcc4" jndiName="jdbc/ccdb" type="javax.sql.XADataSource">
-		<properties databaseName="${env.APP_CCDB_NAME}" driverType="4" password="${env.APP_CCDB_PASSWORD}" portNumber="${env.APP_CCDB_PORT}" serverName="${env.APP_CCDB_HOSTNAME}" user="${env.APP_CCDB_USER}"/>
+		<properties databaseName="${env.APP_CCDB_NAME}" driverType="4" password="${APP_CCDB_PASSWORD}" portNumber="${env.APP_CCDB_PORT}" serverName="${env.APP_CCDB_HOSTNAME}" user="${env.APP_CCDB_USER}"/>
 		<connectionManager id="jdbc/ccdb" maxPoolSize="200" minPoolSize="50"/>
 	</dataSource>
 	<dataSource id="jdbc/wsbankdb" jdbcDriverRef="ease.db2jcc4" jndiName="jdbc/wsbankdb" type="javax.sql.XADataSource">
-		<properties databaseName="${env.APP_WSBANKDB_NAME}" driverType="4" password="${env.APP_WSBANKDB_PASSWORD}" portNumber="${env.APP_WSBANKDB_PORT}" serverName="${env.APP_WSBANKDB_HOSTNAME}" user="${env.APP_WSBANKDB_USER}"/>
+		<properties databaseName="${env.APP_WSBANKDB_NAME}" driverType="4" password="${APP_WSBANKDB_PASSWORD}" portNumber="${env.APP_WSBANKDB_PORT}" serverName="${env.APP_WSBANKDB_HOSTNAME}" user="${env.APP_WSBANKDB_USER}"/>
 		<connectionManager id="jdbc/wsbankdb" maxPoolSize="200" minPoolSize="50"/>
 	</dataSource>
 	<dataSource id="SessionDS" jdbcDriverRef="ease.db2jcc4" jndiName="jdbc/Sessions" type="javax.sql.XADataSource">
-		<properties databaseName="${env.APP_SESSIONDB_NAME}" driverType="4" password="${env.APP_SESSIONDB_PASSWORD}" portNumber="${env.APP_SESSIONDB_PORT}" serverName="${env.APP_SESSIONDB_HOSTNAME}" user="${env.APP_SESSIONDB_USER}"/>
+		<properties databaseName="${env.APP_SESSIONDB_NAME}" driverType="4" password="${APP_SESSIONDB_PASSWORD}" portNumber="${env.APP_SESSIONDB_PORT}" serverName="${env.APP_SESSIONDB_HOSTNAME}" user="${env.APP_SESSIONDB_USER}"/>
 		<connectionManager id="jdbc/Sessions" maxPoolSize="200" minPoolSize="50"/>
 	</dataSource>
 	<httpSessionDatabase dataSourceRef="SessionDS" id="SessionDB"  writeContents="ALL_SESSION_ATTRIBUTES" writeFrequency="END_OF_SERVLET_SERVICE"/>
