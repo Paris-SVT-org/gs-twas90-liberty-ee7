@@ -121,6 +121,7 @@
            <classloader commonLibraryRef="thirdPartyLib"/>
     </enterpriseApplication>-->
    <enterpriseApplication id="GarageSaleLibertyEAR7" location="GarageSaleLibertyEAR.ear" name="GarageSaleLibertyEAR7">
+   			<classloader commonLibraryRef="thirdPartyLib"/>
     </enterpriseApplication>
     
 </server>

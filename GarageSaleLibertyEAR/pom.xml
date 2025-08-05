@@ -25,7 +25,28 @@
 				<groupId>io.github.git-commit-id</groupId>
 				<artifactId>git-commit-id-maven-plugin</artifactId>
 			</plugin>
-
+	         <plugin>
+	            <artifactId>maven-resources-plugin</artifactId>
+	            <version>3.0.2</version>
+	            <executions>
+	               <execution>
+	                  <id>copy-resources</id>
+	                  <phase>package</phase>
+	                  <goals>
+	                     <goal>copy-resources</goal>
+	                  </goals>
+	                  <configuration>
+	                     <outputDirectory>${project.build.directory}/liberty/wlp/usr/shared/resources/jaxrsThirdPartyJars</outputDirectory>
+	                     <resources>
+	                        <resource>
+	                           <directory>resources/jaxrsThirdPartyJars</directory>
+	                           <filtering>false</filtering>
+	                        </resource>
+	                     </resources>
+	                  </configuration>
+	               </execution>
+	            </executions>
+	         </plugin>			
 		</plugins>
 	</build>
 	<dependencies>
