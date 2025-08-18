@@ -44,6 +44,9 @@
 	
 	<ws.json.api>1.0.16</ws.json.api>
 	
+	<!--App deploy customization-->
+	<app.deploy.skip>true</app.deploy.skip>
+	
 	<!-- Maven plugin versions -->
 	<maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -53,6 +56,7 @@
     <maven.jar.version>3.1.2</maven.jar.version>
     <maven.ejb.version>2.5</maven.ejb.version>
 	<maven.git.commit.id.version>4.9.9</maven.git.commit.id.version>
+	<maven.deploy.version>3.1.4</maven.deploy.version>
   </properties>
   
   <!-- Maven depedency management -->
@@ -256,11 +260,33 @@
 				<commitIdGenerationMode>full</commitIdGenerationMode>
 			</configuration>
 			<version>${maven.git.commit.id.version}</version>
-		</plugin>	  
+		</plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${maven.deploy.version}</version>
+        </plugin>		
+		
 	  </plugins>
 	  
+	  
 	</pluginManagement>
+	
   </build>
+  
+  	<distributionManagement>
+		<repository>
+			<id>central</id>
+			<name>artifactory-dal10-01-node-12.swg-devops.com-releases</name>
+			<url>https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-virtual</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>artifactory-dal10-01-node-12.swg-devops.com-snapshots</name>
+			<url>https://na.artifactory.swg-devops.com/artifactory/hyc-wassvt-team-maven-virtual</url>
+		</snapshotRepository>
+	</distributionManagement>			  
+
   
   <!-- Module dependencies -->
   <modules>

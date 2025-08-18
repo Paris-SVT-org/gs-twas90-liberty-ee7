@@ -20,6 +20,13 @@
 			<outputFileNameMapping>@{artifactId}@.@{extension}@</outputFileNameMapping>
         </configuration>
       </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>${app.deploy.skip}</skip>
+				</configuration>
+			</plugin>
     </plugins>
   </build>
   <dependencies>

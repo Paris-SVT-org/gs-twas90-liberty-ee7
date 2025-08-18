@@ -1,7 +1,7 @@
 <server description="Default server">
 
-    <!-- Enable features -->
-    <featureManager>
+	<!-- Enable features -->
+	<featureManager>
 		<feature>jndi-1.0</feature>
 		<feature>localConnector-1.0</feature>
 		<feature>ssl-1.0</feature>
@@ -11,112 +11,155 @@
 		<feature>monitor-1.0</feature>
 		<feature>appSecurity-2.0</feature>
 		<feature>sessionDatabase-1.0</feature>
-        <feature>jdbc-4.1</feature>
-    	<feature>concurrent-1.0</feature>
+		<feature>jdbc-4.1</feature>
+		<feature>concurrent-1.0</feature>
 		<!-- <feature>osgiConsole-1.0</feature> -->
 		<feature>websocket-1.1</feature>
-    	<feature>el-3.0</feature>
+		<feature>el-3.0</feature>
 		<feature>beanValidation-1.1</feature>
 		<feature>cdi-1.2</feature>
 		<feature>jsf-2.2</feature>
 		<feature>ejbLite-3.2</feature>
 		<feature>jpa-2.1</feature>
 		<feature>jaxrs-2.0</feature>
- 		<!--  <feature>wsAtomicTransaction-1.2</feature>-->
-    </featureManager>
+		<!--  <feature>wsAtomicTransaction-1.2</feature>-->
+	</featureManager>
 
 	<!--default variables for the configuration-->
-<!--	<variable name="default.http.port" defaultValue="9080"/>
+	<!--	<variable name="default.http.port" defaultValue="9080"/>
     <variable name="default.https.port" defaultValue="9443"/>
 -->
-    <!-- This template enables security. To get the full use of all the capabilities, a keystore and user registry are required. -->
+	<!-- This template enables security. To get the full use of all the
+	capabilities, a keystore and user registry are required. -->
 
-    <!-- For the keystore, default keys are generated and stored in a keystore. To provide the keystore password, generate an
-         encoded password using bin/securityUtility encode and add it below in the password attribute of the keyStore element.
+	<!-- For the keystore, default keys are generated and stored in a keystore.
+	To provide the keystore password, generate an
+         encoded password using bin/securityUtility encode and add it below in the
+	password attribute of the keyStore element.
          Then uncomment the keyStore element. -->
-    <!--
+	<!--
     <keyStore password=""/>
     -->
 
-    <!--For a user registry configuration, configure your user registry. For example, configure a basic user registry using the
+	<!--For a user registry configuration, configure your user registry. For example, configure a basic user registry using the
         basicRegistry element. Specify your own user name below in the name attribute of the user element. For the password,
         generate an encoded password using bin/securityUtility encode and add it in the password attribute of the user element.
         Then uncomment the user element. -->
-    <!-- <basicRegistry id="basic" realm="BasicRealm"> -->
-        <!-- <user name="yourUserName" password="" />  -->
-    <!--  </basicRegistry> -->
+	<!-- <basicRegistry id="basic" realm="BasicRealm"> -->
+	<!-- <user name="yourUserName" password="" />  -->
+	<!--  </basicRegistry> -->
 
-    <!-- To allow access to this server from a remote client host="*" has been added to the following element -->
-    <httpEndpoint host="*" httpPort="${DEFAULT_HTTP_PORT}" httpsPort="${DEFAULT_HTTPS_PORT}" id="defaultHttpEndpoint"/>
+	<!-- To allow access to this server from a remote client host="*" has been
+	added to the following element -->
+	<httpEndpoint host="*" httpPort="${DEFAULT_HTTP_PORT}"
+		httpsPort="${DEFAULT_HTTPS_PORT}" id="defaultHttpEndpoint" />
 	<keyStore id="defaultKeyStore" password="${env.KEYSTORE_DEFAULT_PASSWORD}" />
-	<quickStartSecurity userName="${env.QS_SECURITY_USERNAME}" userPassword="${env.QS_SECURITY_PASSWORD}"/>
+	<quickStartSecurity userName="${env.QS_SECURITY_USERNAME}"
+		userPassword="${env.QS_SECURITY_PASSWORD}" />
 
-    <!-- Automatically expand WAR files and EAR files -->
-     <!-- Automatically expand WAR files and EAR files -->
-    <applicationManager autoExpand="true"/>
+	<!-- Automatically expand WAR files and EAR files -->
+	<!-- Automatically expand WAR files and EAR files -->
+	<applicationManager autoExpand="true" />
 
-	
-	<jdbcDriver id="GSDBProvider" libraryRef="DB2JCC4LIB"/>
+
+	<jdbcDriver id="GSDBProvider" libraryRef="DB2JCC4LIB" />
 	<library filesetRef="db2jcc4" id="DB2JCC4LIB">
-    </library>
-	<fileset dir="${shared.resource.dir}/db2drivers" id="db2jcc4" includes="db2jcc4.jar db2jcc_license_cu.jar"/>
-	
-<!--Disable JAX-RS thirdParty support as it is not supported in EASeJ service -->
-	
+	</library>
+	<fileset dir="${shared.resource.dir}/db2drivers" id="db2jcc4"
+		includes="db2jcc4.jar db2jcc_license_cu.jar" />
+
+	<!--Disable JAX-RS thirdParty support as it is not supported in EASeJ service -->
+
 	<library id="thirdPartyLib">
-		<fileset dir="${shared.resource.dir}/jaxrsThirdPartyJars" includes="*.jar" scanInterval="5s"/>
-    </library>
-	
-	<dataSource id="jdbc/gsdb" jdbcDriverRef="GSDBProvider" jndiName="jdbc/gsdb" type="javax.sql.XADataSource">
-		<properties databaseName="${env.APP_GSDB_NAME}" driverType="4" password="${env.APP_GSDB_PASSWORD}" portNumber="${env.APP_GSDB_PORT}" serverName="${env.APP_GSDB_HOSTNAME}" user="${env.APP_GSDB_USER}"/>
-		<connectionManager id="jdbc/gsdb" maxPoolSize="300" minPoolSize="50"/>
-	</dataSource>
-	<dataSource id="jdbc/ccdb" jdbcDriverRef="GSDBProvider" jndiName="jdbc/ccdb" type="javax.sql.XADataSource">
-		<properties databaseName="${env.APP_CCDB_NAME}" driverType="4" password="${env.APP_CCDB_PASSWORD}" portNumber="${env.APP_CCDB_PORT}" serverName="${env.APP_CCDB_HOSTNAME}" user="${env.APP_CCDB_USER}"/>
-		<connectionManager id="jdbc/ccdb" maxPoolSize="200" minPoolSize="50"/>
-	</dataSource>
-	<dataSource id="jdbc/wsbankdb" jdbcDriverRef="GSDBProvider" jndiName="jdbc/wsbankdb" type="javax.sql.XADataSource">
-		<properties databaseName="${env.APP_WSBANKDB_NAME}" driverType="4" password="${env.APP_WSBANKDB_PASSWORD}" portNumber="${env.APP_WSBANKDB_PORT}" serverName="${env.APP_WSBANKDB_HOSTNAME}" user="${env.APP_WSBANKDB_USER}"/>
-		<connectionManager id="jdbc/wsbankdb" maxPoolSize="200" minPoolSize="50"/>
-	</dataSource>
-	<dataSource id="SessionDS" jdbcDriverRef="GSDBProvider" jndiName="jdbc/Sessions" type="javax.sql.XADataSource">
-		<properties databaseName="${env.APP_SESSIONDB_NAME}" driverType="4" password="${env.APP_SESSIONDB_PASSWORD}" portNumber="${env.APP_SESSIONDB_PORT}" serverName="${env.APP_SESSIONDB_HOSTNAME}" user="${env.APP_SESSIONDB_USER}"/>
-		<connectionManager id="jdbc/Sessions" maxPoolSize="200" minPoolSize="50"/>
-	</dataSource>
-	<httpSessionDatabase dataSourceRef="SessionDS" id="SessionDB"  writeContents="ALL_SESSION_ATTRIBUTES" writeFrequency="END_OF_SERVLET_SERVICE"/>
-    <httpSession cloneId="localhost_cloneID" storageRef="SessionDB"/>
+		<fileset dir="${shared.resource.dir}/jaxrsThirdPartyJars"
+			includes="*.jar" scanInterval="5s" />
+	</library>
 
-    <webContainer deferServletLoad="false"/>
+	<dataSource id="jdbc/gsdb" jdbcDriverRef="GSDBProvider" jndiName="jdbc/gsdb"
+		type="javax.sql.XADataSource">
+		<properties databaseName="${env.APP_GSDB_NAME}" driverType="4"
+			password="${env.APP_GSDB_PASSWORD}"
+			portNumber="${env.APP_GSDB_PORT}"
+			serverName="${env.APP_GSDB_HOSTNAME}" user="${env.APP_GSDB_USER}" />
+		<connectionManager id="jdbc/gsdb" maxPoolSize="300" minPoolSize="50" />
+	</dataSource>
+	<dataSource id="jdbc/ccdb" jdbcDriverRef="GSDBProvider" jndiName="jdbc/ccdb"
+		type="javax.sql.XADataSource">
+		<properties databaseName="${env.APP_CCDB_NAME}" driverType="4"
+			password="${env.APP_CCDB_PASSWORD}"
+			portNumber="${env.APP_CCDB_PORT}"
+			serverName="${env.APP_CCDB_HOSTNAME}" user="${env.APP_CCDB_USER}" />
+		<connectionManager id="jdbc/ccdb" maxPoolSize="200" minPoolSize="50" />
+	</dataSource>
+	<dataSource id="jdbc/wsbankdb" jdbcDriverRef="GSDBProvider"
+		jndiName="jdbc/wsbankdb" type="javax.sql.XADataSource">
+		<properties databaseName="${env.APP_WSBANKDB_NAME}" driverType="4"
+			password="${env.APP_WSBANKDB_PASSWORD}"
+			portNumber="${env.APP_WSBANKDB_PORT}"
+			serverName="${env.APP_WSBANKDB_HOSTNAME}"
+			user="${env.APP_WSBANKDB_USER}" />
+		<connectionManager id="jdbc/wsbankdb" maxPoolSize="200" minPoolSize="50" />
+	</dataSource>
+	<dataSource id="SessionDS" jdbcDriverRef="GSDBProvider"
+		jndiName="jdbc/Sessions" type="javax.sql.XADataSource">
+		<properties databaseName="${env.APP_SESSIONDB_NAME}" driverType="4"
+			password="${env.APP_SESSIONDB_PASSWORD}"
+			portNumber="${env.APP_SESSIONDB_PORT}"
+			serverName="${env.APP_SESSIONDB_HOSTNAME}"
+			user="${env.APP_SESSIONDB_USER}" />
+		<connectionManager id="jdbc/Sessions" maxPoolSize="200" minPoolSize="50" />
+	</dataSource>
+	<httpSessionDatabase dataSourceRef="SessionDS" id="SessionDB"
+		writeContents="ALL_SESSION_ATTRIBUTES"
+		writeFrequency="END_OF_SERVLET_SERVICE" />
+	<httpSession cloneId="localhost_cloneID" storageRef="SessionDB" />
 
-   <transaction/>
+	<webContainer deferServletLoad="false" />
 
-   <!--<authData id="GSDataSourceAuthData" password="{xor}NT4pPm5qLCkr" user="db2inst3"/>-->
-	
-    	<webContainer deferServletLoad="false" invokeFlushAfterService="false"/>	
-    	<!-- <logging consoleLogLevel="INFO" maxFileSize="50" maxFiles="3" traceFileName="wsocTrace.log" traceSpecification="*=info:com.ibm.ws.webcontainer.*=all:com.ibm.wsspi.webcontainer.*=all:com.ibm.ws.webcontainer31.*=all:com.ibm.ws.servlet31.*=all:com.ibm.ws.wsoc.*=all:JCDI=all:TCPChannel=all:HTTPChannel=all"/> -->
-    	<!-- <logging consoleLogLevel="INFO" maxFileSize="50" maxFiles="3" traceFileName="metadataTrace.log" traceSpecification="*=info:context=all:jeeMetadataContext=all"/>-->
-    	<!-- <logging consoleLogLevel="INFO" maxFileSize="50" maxFiles="3" traceFileName="ClassLoaderTrace.log" traceSpecification="*=info:ClassLoadingService=all"/>-->
-	<!-- <include location="${server.config.dir}/configDropins/defaults/cmlogging.xml" optional="true"/> -->
+	<transaction />
+
+	<!--<authData id="GSDataSourceAuthData" password="{xor}NT4pPm5qLCkr" user="db2inst3"/>-->
+
+	<webContainer deferServletLoad="false" invokeFlushAfterService="false" />
+	<!-- <logging consoleLogLevel="INFO" maxFileSize="50" maxFiles="3"
+	traceFileName="wsocTrace.log"
+	traceSpecification="*=info:com.ibm.ws.webcontainer.*=all:com.ibm.wsspi.webcontainer.*=all:com.ibm.ws.webcontainer31.*=all:com.ibm.ws.servlet31.*=all:com.ibm.ws.wsoc.*=all:JCDI=all:TCPChannel=all:HTTPChannel=all"/> -->
+	<!-- <logging consoleLogLevel="INFO" maxFileSize="50" maxFiles="3"
+	traceFileName="metadataTrace.log"
+	traceSpecification="*=info:context=all:jeeMetadataContext=all"/>-->
+	<!-- <logging consoleLogLevel="INFO" maxFileSize="50" maxFiles="3"
+	traceFileName="ClassLoaderTrace.log"
+	traceSpecification="*=info:ClassLoadingService=all"/>-->
+	<!-- <include
+	location="${server.config.dir}/configDropins/defaults/cmlogging.xml"
+	optional="true"/> -->
 	<!--<keyStore id="defaultKeyStore" location="C:/opt/WAS85/wlp/usr/servers/myLibertyJEEServer/key.jks" password="Liberty" type="jks"/>-->
-    	<transaction waitForRecovery="false"/>
+	<transaction waitForRecovery="false" />
 
 
-    <!-- This template enables security. To get the full use of all the capabilities, a keystore and user registry are required. -->
+	<!-- This template enables security. To get the full use of all the
+	capabilities, a keystore and user registry are required. -->
 
-    <!-- For the keystore, default keys are generated and stored in a keystore. To provide the keystore password, generate an
-         encoded password using bin/securityUtility encode and add it below in the password attribute of the keyStore element.
+	<!-- For the keystore, default keys are generated and stored in a keystore.
+	To provide the keystore password, generate an
+         encoded password using bin/securityUtility encode and add it below in the
+	password attribute of the keyStore element.
          Then uncomment the keyStore element. -->
-    <!--
+	<!--
     <keyStore password=""/>
     -->
-    <applicationMonitor updateTrigger="mbean"/>
+	<applicationMonitor updateTrigger="mbean" />
 
-<!--Disable JAX-RS thirdParty support as it is not supported in EASeJ service -->
+	<!--Disable JAX-RS thirdParty support as it is not supported in EASeJ service -->
 
-<!--   <enterpriseApplication id="GarageSaleLibertyEAR7-LooseConfig" location="GarageSaleLibertyEAR.ear" name="GarageSaleLibertyEAR7-LooseConfig">
+	<!--   <enterpriseApplication id="GarageSaleLibertyEAR7-LooseConfig"
+	location="GarageSaleLibertyEAR.ear"
+	name="GarageSaleLibertyEAR7-LooseConfig">
            <classloader commonLibraryRef="thirdPartyLib"/>
     </enterpriseApplication>-->
-   <enterpriseApplication id="GarageSaleLibertyEAR7" location="GarageSaleLibertyEAR.ear" name="GarageSaleLibertyEAR7">
-    </enterpriseApplication>
-    
+	<enterpriseApplication id="GarageSaleLibertyEAR7"
+		location="GarageSaleLibertyEAR.ear" name="GarageSaleLibertyEAR7">
+		<classloader commonLibraryRef="thirdPartyLib" />
+	</enterpriseApplication>
+
 </server>
