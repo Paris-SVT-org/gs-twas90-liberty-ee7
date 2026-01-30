@@ -345,6 +345,27 @@
 									</resources>
 								</configuration>
 							</execution>
+							<execution>
+								<id>copy-redisLibs</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<!--<outputDirectory>${liberty.install.dir}/usr/shared/resources/jaxrsThirdPartyJars</outputDirectory> -->
+									<outputDirectory>
+										${project.build.directory}/liberty/wlp/usr/shared/resources/redisson</outputDirectory>
+									<resources>
+										<resource>
+											<directory>
+												publish/redisson</directory>
+											<includes>
+												<include>*.jar</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
 						</executions>
 					</plugin>
 				</plugins>
